@@ -4,20 +4,20 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* No programa haver„o if's e while's com varias condiÁıes e podem parecer meio confusas, porÈm estao todas relacionadas
-a impedimentos quanto a tentativa de fazer jogadas inv·lidas. */
+/* No programa haver√£o if's e while's com varias condi√ß√µes e podem parecer meio confusas, por√©m estao todas relacionadas
+a impedimentos quanto a tentativa de fazer jogadas inv√°lidas. */
 
 //______________________________________________________________________________
 
-/* A seguinte funÁ„o realiza a jogada do computador, aqui est· contida a inteligÍncia artificial, quando o modo como o tabuleiro est· n„o coincide
+/* A seguinte fun√ß√£o realiza a jogada do computador, aqui est√° contida a "intelig√™ncia artificial", quando o modo como o tabuleiro est√° n√£o coincide
 com nenhuma das jogadas pre-determinadas, ele gera jogadas aleatorias porem sempre priorizando ir para frente */
-/* OBS: O motivo de eu ter usado rlin, rcol e rdir como sendo as posiÁıes e direÁ„o selecionada pelo computador È porque na primeira vers„o essas
-eram usadas apenas para a geraÁ„o aleatoria do comando ("r" de random), e como eu reutilizei grande parte da primeira vers„o, preferi manter o nome,
-porÈm nessa vers„o, elas sÛ guardam comandos aleatÛrios quando o tabuleiro n„o est· de acordo com o programado na inteligÍncia artificial. Quando
-ele gera um comando aleatÛrio, a funÁ„o n„o acaba enquanto n„o for sorteado uma posiÁ„o e uma direÁ„o v·lidos */
+/* OBS: O motivo de eu ter usado rlin, rcol e rdir como sendo as posi√ß√µes e dire√ß√£o selecionada pelo computador √© porque na primeira vers√£o essas
+eram usadas apenas para a gera√ß√£o aleatoria do comando ("r" de random), e como eu reutilizei grande parte da primeira vers√£o, preferi manter o nome,
+por√©m nessa vers√£o, elas s√≥ guardam comandos aleat√≥rios quando o tabuleiro n√£o est√° de acordo com o programado na intelig√™ncia artificial. Quando
+ele gera um comando aleat√≥rio, a fun√ß√£o n√£o acaba enquanto n√£o for sorteado uma posi√ß√£o e uma dire√ß√£o v√°lidos */
 
 void jogada_computador (int *rdir, int *rlin, int *rcol, char **M, char s, int ct1, int ct2){
-    //InteligÍncia artificial:
+    //Intelig√™ncia artificial:
     if(M[0][0]=='>' && M[1][0]=='>' && M[2][2]=='^' && M[2][1]=='^'){
         *rlin=1;
         *rcol=1;
@@ -134,7 +134,7 @@ void jogada_computador (int *rdir, int *rlin, int *rcol, char **M, char s, int c
     }
 
     else{
-    //Essa parte serve para o caso de o tabuleiro n„o estar de alguma forma reconhecida pela inteligÍncia artificial:
+    //Essa parte serve para o caso de o tabuleiro n√£o estar de alguma forma reconhecida pela intelig√™ncia artificial:
         *rlin=(rand()%3)+1;
         *rcol=(rand()%3)+1;
         while(M[*rlin-1][*rcol-1]!=s || (*rlin-1==0 && *rcol-1!=2 && M[*rlin-1][*rcol]!=' ' && M[*rlin][*rcol-1]!=' ') ||
@@ -158,9 +158,9 @@ void jogada_computador (int *rdir, int *rlin, int *rcol, char **M, char s, int c
 return;
 }
 
-/* A seguinte funÁ„o È respons·vel por peguntar ao usu·rio, independentemente se esta jogando contra outra pessoa ou contra o computador, qual o
-carrinho que deseja selecionar, ir· pedir a linha e a coluna em que este se encontra, caso a posiÁ„o seja inv·lida, o programa pede que o usu·rio
-escolha outra posiÁ„o*/
+/* A seguinte fun√ß√£o √© respons√°vel por peguntar ao usu√°rio, independentemente se esta jogando contra outra pessoa ou contra o computador, qual o
+carrinho que deseja selecionar, ir√° pedir a linha e a coluna em que este se encontra, caso a posi√ß√£o seja inv√°lida, o programa pede que o usu√°rio
+escolha outra posi√ß√£o*/
 void seleciona_carro (int *lin, int *col, char s, char **M, int modo){
 
     if(modo==1){
@@ -198,9 +198,9 @@ void seleciona_carro (int *lin, int *col, char s, char **M, int modo){
     return;
 }
 
-/* A seguinte funÁ„o È respons·vel por peguntar ao usu·rio, independentemente se esta jogando contra outra pessoa ou contra o computador, qual a
-direÁ„o em que quer movimentar o carrinho escolhido, frente, esquerda ou direita. Caso a direÁ„o seja inv·lida, o programa pede que o usu·rio
-escolha outra direÁ„o */
+/* A seguinte fun√ß√£o √© respons√°vel por peguntar ao usu√°rio, independentemente se esta jogando contra outra pessoa ou contra o computador, qual a
+dire√ß√£o em que quer movimentar o carrinho escolhido, frente, esquerda ou direita. Caso a dire√ß√£o seja inv√°lida, o programa pede que o usu√°rio
+escolha outra dire√ß√£o */
 void direcao (int *dir, int lin, int col, char s, char **M, int modo){
 
     if(modo==1){
@@ -221,9 +221,9 @@ void direcao (int *dir, int lin, int col, char s, char **M, int modo){
 }
 
 
-/* A seguinte funÁ„o serve para modificar o tabuleiro, È a funÁ„o que far· com que o carrinho "se mova". Ela È usada tanto para fazer o movimento
-do carrinho do jogador quanto o do computador. Como as funÁıes anteriores s„o respons·veis por fazer com que a posiÁ„o e direÁ„o sejam v·lidos,
-ent„o para essa funÁ„o sempre ser„o enviados comandos v·lidos, ent„o sempre ser· possÌvel realizar o movimento do carrinho */
+/* A seguinte fun√ß√£o serve para modificar o tabuleiro, √© a fun√ß√£o que far√° com que o carrinho "se mova". Ela √© usada tanto para fazer o movimento
+do carrinho do jogador quanto o do computador. Como as fun√ß√µes anteriores s√£o respons√°veis por fazer com que a posi√ß√£o e dire√ß√£o sejam v√°lidos,
+ent√£o para essa fun√ß√£o sempre ser√£o enviados comandos v√°lidos, ent√£o sempre ser√° poss√≠vel realizar o movimento do carrinho */
 void move_carro (int dir, int lin, int col, char s, int *ct1, int *ct2, char **M){
 
     if(dir==1 && s=='>' && col-1==2){
@@ -279,9 +279,9 @@ void move_carro (int dir, int lin, int col, char s, int *ct1, int *ct2, char **M
     return;
 }
 
-/* A seguinte funÁ„o serve para verificar e informar quanto houver vitÛria no modo-1 (jogador vs jogador), ela È chamada no fim de cada jogada
-para essa finalidade. Ela verifica tambÈm o motivo da vitÛria, se foi por um dos jogadores ter tirado os 2 carrinhos, ou se um dos jogadores
-deixou o outro sem movimentos possÌveis*/
+/* A seguinte fun√ß√£o serve para verificar e informar quanto houver vit√≥ria no modo-1 (jogador vs jogador), ela √© chamada no fim de cada jogada
+para essa finalidade. Ela verifica tamb√©m o motivo da vit√≥ria, se foi por um dos jogadores ter tirado os 2 carrinhos, ou se um dos jogadores
+deixou o outro sem movimentos poss√≠veis*/
 int vitoria_jog_vs_jog(int ct1, int ct2, char **M, char s){
 
     if(ct1==2){
@@ -305,8 +305,8 @@ int vitoria_jog_vs_jog(int ct1, int ct2, char **M, char s){
     return(0);
 }
 
-/* A seguinte funÁ„o funciona exatamente como a funÁ„o "vitoria_jog_vs_jog", porÈm esta serve para o modo-2 (jogador vs computador), o ˙nico
-motivo de eu ter feito duas funÁıes com a mesma finalidade È que as mensagens de vitÛria printadas em ambas s„o diferentes */
+/* A seguinte fun√ß√£o funciona exatamente como a fun√ß√£o "vitoria_jog_vs_jog", por√©m esta serve para o modo-2 (jogador vs computador), o √∫nico
+motivo de eu ter feito duas fun√ß√µes com a mesma finalidade √© que as mensagens de vit√≥ria printadas em ambas s√£o diferentes */
 int vitoria_jog_vs_comp(int ct1, int ct2, char **M, char s){
 
     if(ct1==2){
@@ -335,11 +335,11 @@ void main (){
     char **M,s;
     int lin,col,vez,dir,ct1,ct2,modo,rdir,rlin,rcol,dnv,vit,i;
 
-    /* **M: Matriz 3x3 ; s: o sÌmbolo ">" ou "^" ; lin: linha que o jogador digita (1,2,3) ; col: coluna que o jogadr digita (1,2,3) ;
-    vez: define de quem È a vez de jogar ; dir: direÁ„o, "1"frente, "2"esquerda, "3"direita ; ct1: carros ">" ja tirados ;
-    ct2: carros "^" ja tirados ; modo: Escolha entre as duas versoes Jog x Jog ou Jog x Comp ; rdir: DireÁ„o escolhida pelo computador,
+    /* **M: Matriz 3x3 ; s: o s√≠mbolo ">" ou "^" ; lin: linha que o jogador digita (1,2,3) ; col: coluna que o jogadr digita (1,2,3) ;
+    vez: define de quem √© a vez de jogar ; dir: dire√ß√£o, "1"frente, "2"esquerda, "3"direita ; ct1: carros ">" ja tirados ;
+    ct2: carros "^" ja tirados ; modo: Escolha entre as duas versoes Jog x Jog ou Jog x Comp ; rdir: Dire√ß√£o escolhida pelo computador,
     "0"frente, "1"esquerda, "2"direita ; rlin: linha escolhida pelo computador (0,1,2) ; rcol: coluna escolhida pelo computador (0,1,2) ;
-    dnv: Ligado ‡ pergunta "Deseja jogar novamente? ; vit: Vari·vel respons·vel por verificar se houve vitÛria ; i: Contador". */
+    dnv: Ligado √† pergunta "Deseja jogar novamente? ; vit: Vari√°vel respons√°vel por verificar se houve vit√≥ria ; i: Contador". */
 
     srand(time(NULL));
 
@@ -431,7 +431,7 @@ void main (){
                 }
             }
 
-            //Usu·rio jogando:
+            //Usu√°rio jogando:
             if(s=='^'){
 
                 seleciona_carro(&lin,&col,s,M,modo);
