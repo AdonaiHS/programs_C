@@ -13,11 +13,11 @@ a impedimentos quanto a tentativa de fazer jogadas inválidas. */
 com nenhuma das jogadas pre-determinadas, ele gera jogadas aleatorias porem sempre priorizando ir para frente */
 /* OBS: O motivo de eu ter usado rlin, rcol e rdir como sendo as posições e direção selecionada pelo computador é porque na primeira versão essas
 eram usadas apenas para a geração aleatoria do comando ("r" de random), e como eu reutilizei grande parte da primeira versão, preferi manter o nome,
-porém nessa versão, elas só guardam comandos aleatórios quando o tabuleiro não está de acordo com o programado na inteligência artificial. Quando
+porém nessa versão, elas só guardam comandos aleatórios quando o tabuleiro não está de acordo com o programado na "inteligência artificial". Quando
 ele gera um comando aleatório, a função não acaba enquanto não for sorteado uma posição e uma direção válidos */
 
 void jogada_computador (int *rdir, int *rlin, int *rcol, char **M, char s, int ct1, int ct2){
-    //Inteligência artificial:
+    //"Inteligência artificial":
     if(M[0][0]=='>' && M[1][0]=='>' && M[2][2]=='^' && M[2][1]=='^'){
         *rlin=1;
         *rcol=1;
@@ -134,7 +134,7 @@ void jogada_computador (int *rdir, int *rlin, int *rcol, char **M, char s, int c
     }
 
     else{
-    //Essa parte serve para o caso de o tabuleiro não estar de alguma forma reconhecida pela inteligência artificial:
+    //Essa parte serve para o caso de o tabuleiro não estar de alguma forma reconhecida pela "inteligência artificial":
         *rlin=(rand()%3)+1;
         *rcol=(rand()%3)+1;
         while(M[*rlin-1][*rcol-1]!=s || (*rlin-1==0 && *rcol-1!=2 && M[*rlin-1][*rcol]!=' ' && M[*rlin][*rcol-1]!=' ') ||
