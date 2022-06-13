@@ -6,7 +6,7 @@
 int main (){
 
     int M[10][10],V[20],k,n,i,j,dnv,c,s;
-    //Como no enunciado do exercicio diz que M é uma matriz inteira, ela arredonda os preços caso hajam centavos nos mesmos.
+    //Como no enunciado do exercicio diz que M Ã© uma matriz inteira, ela arredonda os preÃ§os caso hajam centavos nos mesmos.
 
     dnv=1;
     printf("Digite quantas cidades haverao no sistema (maximo 10): ");
